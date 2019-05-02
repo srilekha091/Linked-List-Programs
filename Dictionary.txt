@@ -1,0 +1,106 @@
+1.DICTIONARY:
+
+************INTRODUCTION**********
+
+using System;
+using System.Collections.Generic;
+
+namespace Practice
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            // Intitializing Customr Class
+            Customr customer1 = new Customr()
+            {
+                ID = 101,
+                Name = "Mark",
+                Salary = 3500
+            };
+
+            Customr customer2 = new Customr()
+            {
+                ID = 110,
+                Name = "Sam",
+                Salary = 5200
+            };
+
+            Customr customer3 = new Customr()
+            {
+                ID = 119,
+                Name = "Akkera",
+                Salary = 4300
+            };
+
+            // Creating Customr Dictionary 
+            Dictionary<int, Customr> dictionaryCustomers = new Dictionary<int, Customr>();
+            dictionaryCustomers.Add(customer1.ID, customer1); // creating customer1 ID and storing Customer Objects.
+            dictionaryCustomers.Add(customer2.ID, customer2);
+            dictionaryCustomers.Add(customer3.ID, customer3);
+
+            //Finding one customer using their ID.
+            //Customr cust = dictionaryCustomers[119];
+            //Console.WriteLine("ID = {0}, Name = {1}, Salary = {2} ", 
+            //                    cust.ID, cust.Name, cust.Salary);
+
+
+            //Finding all the customers in a loop.
+            /*
+            foreach(KeyValuePair<int, Customr> customerKeyValuePair in dictionaryCustomers)
+            {
+                Console.WriteLine("Key = {0}", customerKeyValuePair.Key);
+                Customr cust = customerKeyValuePair.Value;
+                Console.Write("ID = {0}, Name = {0}, Salary = {0}", 
+                                   cust.ID, cust.Name, cust.Salary);
+                Console.WriteLine(".......................");
+            }
+            */
+            //Finding all the keys..
+            /*
+            foreach(int keys in dictionaryCustomers.Keys)
+            {
+                Console.WriteLine(keys);
+            }
+            */
+
+
+            //Using TryGetValue to know if the ID i present or not.
+            /*
+            Customr cust;
+            if(dictionaryCustomers.TryGetValue(101, out cust))
+            {
+                Console.WriteLine("ID = {0}, Name = {1}, Salary = {2} ",
+                                        cust.ID, cust.Name, cust.Salary);
+            }
+            else
+            {
+                Console.WriteLine("Key not found.");
+            }
+            */
+
+            //To find Total items prsent in the dictionary.
+            Console.WriteLine("Total items : {0} ", dictionaryCustomers.Count);
+
+            /*
+            //Removing particular item
+            dictionaryCustomers.Remove(999);
+
+            //Clears all the item from dictionary.
+            dictionaryCustomers.Clear();
+            */
+        }
+}
+
+// Customr class
+public class Customr
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public int Salary { get; set; }
+}
+    
+} 
+******************************************************************************************
+       
+
